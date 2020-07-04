@@ -5,7 +5,7 @@
   "repository": "https://github.com/itizawa/penguin-ogp.git",
   "author": "itizawa <itizawa@weseek.co.jp>",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "canvas": "^2.6.1"
   }
 }
