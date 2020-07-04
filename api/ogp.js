@@ -2,22 +2,25 @@ import * as path from "path";
 const { createCanvas, loadImage } = require("canvas");
 
 export default async (req, res) => {
+  let { text } = req.query;
+  if (text == null) {
+    text = "hello world";
+  }
+
   const CANVAS_WIDTH = 1200;
   const CANVAS_HEIGHT = 630;
 
+  const TEXT_SIZE = 60;
+  const FONT_FAMILY = "ＭＳ ゴシック";
+
+  const BACKGROUND_IMAGE_PATH = path.join(
+    __dirname,
+    "..",
+    "images",
+    "background.png"
+  );
+
   try {
-    const BACKGROUND_IMAGE_PATH = path.join(
-      __dirname,
-      "..",
-      "images",
-      "background.png"
-    );
-
-    let { text } = req.query;
-    if (text == null) {
-      text = "hello world";
-    }
-
     const canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
     const context = canvas.getContext("2d");
 
@@ -25,7 +28,7 @@ export default async (req, res) => {
     const backgroundImage = await loadImage(BACKGROUND_IMAGE_PATH);
     context.drawImage(backgroundImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
-    context.font = "60px myfont";
+    context.font = `${TEXT_SIZE}px ${FONT_FAMILY}`;
     context.fillStyle = "#ffffff";
     context.fillText(text, 100, 100);
 
