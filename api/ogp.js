@@ -10,12 +10,12 @@ export default async (req, res) => {
 
     const TEXT_COLOR = "#000000";
     const TEXT_SIZE = 60;
-    const FONT_FAMILY = "rounded-mplus-1p-medium";
+    const FONT_FAMILY = "pugnomincho-mini";
     const FONT_PATH = path.join(
       __dirname,
       "..",
       "fonts",
-      "rounded-mplus-1p-medium.ttf"
+      "pugnomincho-mini.ttf"
     );
 
     const BACKGROUND_IMAGE_PATH = path.join(
