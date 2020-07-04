@@ -8,5 +8,4 @@
   "[scss]": {
     "editor.formatOnSave": true
   },
-  "editor.wordWrapColumn": 126
 }
