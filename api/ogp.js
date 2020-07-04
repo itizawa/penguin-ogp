@@ -9,20 +9,20 @@ export default async (req, res) => {
     const CANVAS_HEIGHT = 630;
 
     const TEXT_COLOR = "#000000";
-    const TEXT_SIZE = 60;
-    const FONT_FAMILY = "pugnomincho-mini";
+    const TEXT_SIZE = 72;
+    const FONT_FAMILY = "shirokuma-regular";
     const FONT_PATH = path.join(
       __dirname,
       "..",
       "fonts",
-      "pugnomincho-mini.ttf"
+      "shirokuma-regular.ttf"
     );
 
     const BACKGROUND_IMAGE_PATH = path.join(
       __dirname,
       "..",
       "images",
-      "background.png"
+      "ogp-background.jpg"
     );
     registerFont(FONT_PATH, { family: FONT_FAMILY });
     const canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -34,7 +34,7 @@ export default async (req, res) => {
 
     context.font = `${TEXT_SIZE}px ${FONT_FAMILY}`;
     context.fillStyle = TEXT_COLOR;
-    context.fillText(text, 100, 100);
+    context.fillText(text, 100, 250);
 
     return canvas.toBuffer();
   }
