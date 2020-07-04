@@ -1,5 +1,5 @@
 import * as path from "path";
-const { createCanvas, loadImage } = require("canvas");
+const { createCanvas, registerFont, loadImage } = require("canvas");
 
 export default async (req, res) => {
   const { text } = req.query;
@@ -10,7 +10,13 @@ export default async (req, res) => {
 
     const TEXT_COLOR = "#000000";
     const TEXT_SIZE = 60;
-    const FONT_FAMILY = "ＭＳ ゴシック";
+    const FONT_FAMILY = "rounded-mplus-1p-medium";
+    const FONT_PATH = path.join(
+      __dirname,
+      "..",
+      "fonts",
+      "rounded-mplus-1p-medium.ttf"
+    );
 
     const BACKGROUND_IMAGE_PATH = path.join(
       __dirname,
@@ -18,6 +24,7 @@ export default async (req, res) => {
       "images",
       "background.png"
     );
+    registerFont(FONT_PATH, { family: FONT_FAMILY });
     const canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
     const context = canvas.getContext("2d");
 
