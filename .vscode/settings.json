@@ -1,6 +1,4 @@
 {
-  "editor.formatOnSave": true,
-  // Enable per-language basis by scoping for Prettier
   "[javascript]": {
     "editor.formatOnSave": true
   },
